@@ -83,14 +83,14 @@ issn | settings YAML _or _.md YAML (BPT file) | 1873-5363 | TEI (`<teiHeader>`)
 publication\_date | settings YAML _or _.md YAML (BPT file) |  | TEI (`<teiHeader>`) | 
 publication\_place | settings YAML _or _.md YAML (BPT file) | Leiden - New York | TEI (`<teiHeader>`) | 
 publisher | settings YAML _or _.md YAML (BPT file) | Brill | TEI (`<teiHeader>`) | 
-author | settings YAML _or _.md YAML (BPT file) | Williams, Mary Frances (San Matteo, CA) | TEI (<teiHeader>) | 
+author | settings YAML _or _.md YAML (BPT file) | Williams, Mary Frances (San Matteo, CA) | TEI (`<teiHeader>`) | 
 reference\_levels | settings YAML _or _.md YAML (BPT file) | \- section: div | TEI (`<teiHeader>`) | `<refsDecl>`
 
 Notes:
 1. There is no need for a field stating “ed” or “tr” or “comm” because we retrieve this from the ti:label. 
 2. There is no need for a field stating the cts\_version\_number because we retrieve this simply from the amount of files.
 3. The field “source\_language” does not exist yet… 
-4. We currently have **both** ## title and YAML title: . This needs to be de-doubled.
+4. We currently have **both** `##` title and YAML title: . This needs to be de-doubled.
 
 #### Optional fields
 
@@ -134,7 +134,6 @@ BPT files names in JO are either `0001.md`, `0001_ed2.md` or `0001_ed3.md` (with
 #### other
 
 * Don’t create CTS versions at textpart level
-* replace ### subsection with ### textpart 
+* replace `### subsection` with `### textpart` 
 * remove historian metadata from YAML table at work level and ignore this table, just like we ignore the fragment metadata.
 * Add publication statement as YAML field publication\_statement:
-

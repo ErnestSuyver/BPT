@@ -1,6 +1,6 @@
 # BPT Basic
 
-_Brill Plain Text_ (BPT) is [Markdown](https://en.wikipedia.org/wiki/Markdown) supplemented by Brill-specific extensions.
+_Brill Plain Text_ (BPT) is [Markdown](https://en.wikipedia.org/wiki/Markdown) supplemented by text-edition-specific extensions.
 
 Markdown is not a single and strictly-defined entity. Several flavours of Markdown exist, such as [CommonMark](https://commonmark.org/), [Scholarly MarkDown](http://scholmd.org/), [GitHub Flavored MarkDown](https://guides.github.com/features/mastering-markdown/), and of course the [original Markdown](https://daringfireball.net/projects/markdown/). The difference is in the extensions.
 
@@ -20,4 +20,4 @@ For some hand-on experiences, follow [this](https://programminghistorian.org/en/
 
 ## Escapes
 
-Sometime you will see things like `\<` or `\|` in the markdown. A backslash is positioned before a character. This is called " escaping". Its purpose is to enforce a certain interpretation of the escaped character. For example, a human editor may use `<` and `>` to indicate a dubious or supplemented reading of a text. However, the software processing the markdown will interpret these characters as tag markers, like `<p>`. The backslah tells the software to ignore the character.
+Sometime you will see things like `\<` or `\|` in the markdown. A backslash is positioned before a character. This is called " escaping". Its purpose is to enforce a certain interpretation of the escaped character. For example, a human editor may use `<` and `>` to indicate a dubious or supplemented reading of a text. However, the software processing the markdown will interpret these characters as tag markers, like `<p>`. The backslash tells the software to ignore the character.

@@ -14,4 +14,4 @@ Simplicity is only maintained if stand-off annotation is used. And complexity ca
 
 ### roadmap
 
-See Trello. First on the roadmap is the addition of Leiden+ and the option to create additional levels of textparts.
+First on the roadmap is the addition of Leiden+ and the option to create additional levels of textparts.

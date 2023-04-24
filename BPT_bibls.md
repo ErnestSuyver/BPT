@@ -22,7 +22,7 @@ First, a terminological point: we disintuish between inline _citations_ and end-
 
 ## Citations in BPT
 
-A citation in BPT is a _combination_ of _citekey_ and place. 
+A citation in BPT is a _combination_ of _citekey_ and place.
 
 For example `@West_2020 pp. 34-45`
 
@@ -74,8 +74,7 @@ Brill uses _YAML format_ and _CSL fields_ for its bibliographies.
 
 YAML basically consists of pairs of _keys_ asnd _values_. See the [official site](https://yaml.org/) for more information. Also check this [linter](http://www.yamllint.com/).
 
-CSL stands for Citation Style Language. It is used for styling (_not_ a concern in BPT) but in order to style, it defines semantic elements. These are the keys in BPT references. See the [official site](https://citationstyles.org/) for more information. 
-
+CSL stands for Citation Style Language. It is used for styling (_not_ a concern in BPT) but in order to style, it defines semantic elements. These are the keys in BPT references. See the [official site](https://citationstyles.org/) for more information.
 
 ## pointers and anchors
 
@@ -83,7 +82,7 @@ How to create pointers and anchors in BPT?
 
 ### Pointers
 
-This is a pointer: 
+This is a pointer:
 
 `see the [Biographical Essay](#Biographical-Essay) below.` 
 
@@ -110,4 +109,3 @@ What to do if a title contains text in italics or superscript? We use the follow
 * italics: `_ _`
 * bold: `** **`
 * superscript: `^ ^`
-

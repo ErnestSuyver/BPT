@@ -1,20 +1,24 @@
-## BPT Brill-Specific
+## BPT Text Edition Specific
 
-There is a need in Brill texts to go beyond vanilla Markdown. Below a few Brill-specific extensions are listed.
+There is a need in text editions to go beyond vanilla Markdown. Below a few text edition specific extensions are listed.
 
 ### Language and script
+
  * **md**: `~|ἄνδρα μοι ἔννεπε, μοῦσα|~grc-Grek`
 <!--  * **epidoc**: `<foreign xml:lang="grc-Grek">ἄνδρα μοι ἔννεπε, μοῦσα</foreign>` -->
 
 ### Direction
+
 * **md**: `~|הלך אבא לעבודה|~rtl`
 
 ### Language and script and direction
+
 * **md**: `~|~|הלך אבא לעבודה|~he-Hebr|~rtl`
 
-It probably makes sense to indicate the base directionality and lang-script combination in a comment at the top of a work, i.e between `<!-- -->`, and to indicate in the text itself *only the exceptions*. This prevents redundant markup. 
+It probably makes sense to indicate the base directionality and lang-script combination in a comment at the top of a work, i.e between `<!-- -->`, and to indicate in the text itself *only the exceptions*. This prevents redundant markup.
 
 In the bpt+2tei.py, we'll include rules like:
+
 * not included in the base directionality (unless it is ltr) are line numbers
 * not included in the base directionality (unless it is ltr) are note numbers
 
@@ -54,13 +58,14 @@ We use [this](https://github.com/thephpleague/commonmark-ext-table) CommonMark e
 ```
 
 ### anchors
+
 See the section on references
 
 ### table of contents
 
 This is the thing: https://github.com/jonschlinkert/markdown-toc
 
-###see also
+### see also
 
 * https://stackoverflow.com/questions/11948245/markdown-to-create-pages-and-table-of-contents
 * https://python-markdown.github.io/extensions/toc/

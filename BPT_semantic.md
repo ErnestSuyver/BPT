@@ -4,9 +4,9 @@
 
 Brill's [workflow](https://brillpublishers.gitlab.io/documentation-workflow/) for creating, editing, and publishing content is based on plain text. This means that whatever the source format, the content is converted into plain text. The plain text is processed, enriched, and converted into other formats for publication, exchange, or archiving.
 
-The selected plain text format is [MarkDown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), supplemented by some Brill-specific extensions. Hence the name _Brill Plain Text_, or BPT for short.
+The selected plain text format is [MarkDown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), supplemented by some text-edition-specific extensions. Hence the name _Basic Plain Text_, or BPT for short.
 
-BPT supports the inclusion of additional mark-up, such as Leiden+ for epigraphical texts, YAML for metadata and references, and HTML.
+BPT supports the inclusion of additional mark-up, such as [Leiden+]() for epigraphical texts, [YAML]() for metadata and references, and [HTML]().
 
 <!--
 After conversion to plain text, the content may be further processed. For example, it can be copy-edited, indexed, and converted into TEI XML for publication on Brill's [Scholarly Edition site](https://labs.brill.com/se/). 

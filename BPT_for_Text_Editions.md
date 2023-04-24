@@ -74,7 +74,6 @@ If we use BPT to digitize print editions, we may be faced with the need to deal 
 
 [Leiden+](https://brillpublishers.gitlab.io/documentation-seg/LeidenPlus-complete.html#document-div) can help us here: it has markers for blocks of text and divisions like recto/verso (`<=` and `<=.r` respectively). (Note that the milestone elements are all closed, whereas the Leiden+ markers open and close). This system can be combined with that of TEI to form the following:
 
-
 TEI | explanation | BPT
 ----- | ----- | -----
 `<milestone>` | a boundary point | `<=.ms pindakaas =>`
@@ -163,6 +162,7 @@ The BPT script places the manuscript marker before the variant reading (separate
 A note, i.e. an apparatus entry, may contain a lemma, i.e. a reading accepted as that of the original or of the base text. This may look as follows:
 
 #### Example
+
 ```
 1. Experience[^1], though[^2] noon auctoritee
 2. Were in this world, is right ynogh for me
@@ -175,11 +175,13 @@ A note, i.e. an apparatus entry, may contain a lemma, i.e. a reading accepted as
 The lemma is marked in bold; this can be done by the BPT script because the word or phrase appears exactly like that in the base text. 
 
 ### List of Witnesses
-The above requires a unique identifier for each witness. BPT expects scholarly editions to provide a list of witness and their markers (sometimes known as 'sigla'). 
+
+The above requires a unique identifier for each witness. BPT expects scholarly editions to provide a list of witness and their markers (sometimes known as 'sigla').
 
 The BPT script places the list of witnesses between base text and critical apparatus. It may look as follows:
 
 #### Example
+
 ```
 El = Ellesmere, Huntingdon Library 26.C.9
 Hg = Hengwrt, National Library of Wales, Aberystwyth, Peniarth 392D
@@ -188,6 +190,7 @@ Ra2 = Bodleian Library Rawlinson Poetic 149
 ```
 
 ## Marginalia
+
 There are several types, e.g.
 
 * References to other editions (often following the physical structure, e.g. Migne pages, Whiston sections, etc.)
@@ -196,6 +199,7 @@ There are several types, e.g.
 Such marginalia should be attached to (clean, free of anchors and such like) base text via URNs, but these have no place in human-readable BPT. What to do? Treat them like notes.
 
 #### Example
+
 ```
 Ἔστι μὲν καὶ πᾶσιν ὑαῖν τοῖς τὴν ἰατρικὴν αετιοῦσι[^1]
 
@@ -205,6 +209,7 @@ Such marginalia should be attached to (clean, free of anchors and such like) bas
 In this example it is unclear if the annotation refers to to the wordl or to the line. Disambiguate as follows:
 
 #### Example
+
 ```
 1.[^1] Ἔστι μὲν καὶ πᾶσιν ὑαῖν τοῖς τὴν ἰατρικὴν αετιοῦσι
 
@@ -216,6 +221,7 @@ In this example it is unclear if the annotation refers to to the wordl or to the
 Using different sets of annotation, for example, critical apparatus combined with commentary notes and marginal notes, requires a way to disambiguite, i.e to mark each system as such. Use simple markers to do so, e.g. letters, like so:
 
 #### Example
+
 ```
 1.[^1] A line[^2] of base text[^3]
 
@@ -227,13 +233,13 @@ Using different sets of annotation, for example, critical apparatus combined wit
 It does not matter which markers are used, as long as they are clear and used consistently.
 
 ## Milestones
+
 * If the logical structure of a work differs from the physical structure, Brill uses [milestone elements](https://brillpublishers.gitlab.io/documentation-tei-xml/page_numbers.html) in the TEI XML to indicate the physical structure.
 * In BPT, such milestone elemements are indicated as follows: `<=.UNIT NUMBER=>`. for example, in ETTO, we use:
 
 ```
 •	Physical structure: Van der Valk: tome <=.vt [tome number] =>; page <=.vp [page number] =>; line <=.vl [page number] =>. These are “closed “elements; place them at the start of the text they structure.
 •	Physical structure: Rome: tome <=.rt [tome number] =>; page <=.rp [page number] =>; line <=.rl [line number] =>. These are “closed “elements; place them at the start of the text they structure. The markers for the Rome line numbers replace the vertical lines (pipe symbols) that now occur in the base text at every five Rome lines.
-
 ```
 
 * PS. At this moment, the difference between logical (`<div>`, `<ab>`) and physical (`<milestone>`, `<pb>`, `<lb>`) is not strictly enforced. We really should do this.
