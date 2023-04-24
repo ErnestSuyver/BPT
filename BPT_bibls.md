@@ -2,7 +2,7 @@
 
 ## Terminology
 
-First, a terminological point: we disintuish between inline _citations_ and end-of-text _references_.
+First, a terminological point: following the _Chicago Manual of Style_, we distintuish between inline _citations_ and end-of-text _references_.
 
 ### Citations
 
@@ -54,27 +54,23 @@ Here is an example
 
 All references in BPT sit in a _bibl block_:
 
-
-```
+```md
 
 ```bibl
-
 [bunch of references]
-
 \`\`\`
 
 ```
-
 
 A bibl block may occur anywwhere within a textpart.
 
 ## CSL YAML
 
-Brill uses _YAML format_ and _CSL fields_ for its bibliographies.
+At Brill, we used _YAML format_ and _CSL fields_ for bibliographies.
 
-YAML basically consists of pairs of _keys_ asnd _values_. See the [official site](https://yaml.org/) for more information. Also check this [linter](http://www.yamllint.com/).
+YAML basically consists of pairs of _keys_ and _values_. See the [official site](https://yaml.org/) for more information. Also check this [linter](http://www.yamllint.com/).
 
-CSL stands for Citation Style Language. It is used for styling (_not_ a concern in BPT) but in order to style, it defines semantic elements. These are the keys in BPT references. See the [official site](https://citationstyles.org/) for more information.
+CSL stands for [Citation Style Language](). It is used for styling (_not_ a concern in BPT) but in order to style, it defines semantic elements. These are the keys in BPT references. See the [official site](https://citationstyles.org/) for more information.
 
 ## pointers and anchors
 
@@ -84,7 +80,7 @@ How to create pointers and anchors in BPT?
 
 This is a pointer:
 
-`see the [Biographical Essay](#Biographical-Essay) below.` 
+`see the [Biographical Essay](#Biographical-Essay) below.`
 
 Note that the anchors can have no upper case and no spaces; replace them by hyphens.
 

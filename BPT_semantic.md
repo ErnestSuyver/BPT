@@ -1,4 +1,4 @@
-## BPT is for humans
+# BPT is for humans
 
 ### Background
 
@@ -17,8 +17,12 @@ By default, such processes are automated and take place in GitLab, which not onl
 
 ### For people
 
-BPT is meant to be simple. No knowledge preusupposed. Experience has shown that XML is an obstacle to most authors and editors. 
+BPT is meant to be simple. No knowledge presupposed. Experience has shown that XML is an obstacle to most authors and editors.
 
 ### Semantic
 
 BPT is a *content format* rather than a data format or typographical format. It deals with meaning.
+
+## Escapes
+
+Sometime you will see things like `\<` or `\|` in the markdown. A backslash is positioned before a character. This is called " escaping". Its purpose is to enforce a certain interpretation of the escaped character. For example, a human editor may use `<` and `>` to indicate a dubious or supplemented reading of a text. However, the software processing the markdown will interpret these characters as tag markers, like `<p>`. The backslash tells the software to ignore the character.

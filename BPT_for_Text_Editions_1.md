@@ -1,32 +1,18 @@
-## BPT Text Edition Specific
+# BPT for Text Editions 1
 
-There is a need in text editions to go beyond vanilla Markdown. Below a few text edition specific extensions are listed.
+There is a need in text editions to go beyond vanilla Markdown. Below the text edition specific extensions that characterize BPT are listed.
 
-### Language and script
+### anchors
 
- * **md**: `~|ἄνδρα μοι ἔννεπε, μοῦσα|~grc-Grek`
-<!--  * **epidoc**: `<foreign xml:lang="grc-Grek">ἄνδρα μοι ἔννεπε, μοῦσα</foreign>` -->
-
-### Direction
-
-* **md**: `~|הלך אבא לעבודה|~rtl`
-
-### Language and script and direction
-
-* **md**: `~|~|הלך אבא לעבודה|~he-Hebr|~rtl`
-
-It probably makes sense to indicate the base directionality and lang-script combination in a comment at the top of a work, i.e between `<!-- -->`, and to indicate in the text itself *only the exceptions*. This prevents redundant markup.
-
-In the bpt+2tei.py, we'll include rules like:
-
-* not included in the base directionality (unless it is ltr) are line numbers
-* not included in the base directionality (unless it is ltr) are note numbers
+See the section on references
 
 ### Bibliography
+
 * references are in YAML using CSL field names
 * citations are in `author_year` format (acting as citekey)
 
 ### Illustrations
+
 * Vanilla Markdown has `![foo](/url "title")`which results in HTML `<img src="/url" alt="foo" title="title" />` 
 * This is just one of [many](https://github.github.com/gfm/#images) possibilities, by the way.
 * Still, this system doesn't work for cases where the image descrption is very long, has multiply paragraphs and contains markup. This is the case in Brill325, for example. 
@@ -38,32 +24,48 @@ In the bpt+2tei.py, we'll include rules like:
 <=.ill_01-00.jpg Around 1750 Samuel Luchtmans I commissioned this allegorical mantelpiece painting from the artist Nicolaas Reyers. For many years it decorated the home of the Luchtmans family on the Rapenburg, and it now hangs in the offices of Brill. The painting shows Pallas Athena with her shield and lance, accompanied by Hermes with his winged helmet and herald’s staff. In the foreground three naked little boys are playing with prints depicting periwigged gentlemen, presumably Leiden professors.
 ```
 
+### Language and script
+
+ * **md**: `~|ἄνδρα μοι ἔννεπε, μοῦσα|~grc-Grek`
+<!--  * **epidoc**: `<foreign xml:lang="grc-Grek">ἄνδρα μοι ἔννεπε, μοῦσα</foreign>` -->
+
+### Table of contents
+
+See [Markdown TOC](https://github.com/jonschlinkert/markdown-toc) by Jon Schlinkert.
+
 ### Tables
 
-Tables are plain markdown. 
+Tables are plain markdown.
 
-We use [this](https://github.com/thephpleague/commonmark-ext-table) CommonMark extension to add **captions** to tables. 
+We use [this](https://github.com/thephpleague/commonmark-ext-table) CommonMark extension to add **captions** to tables.
 
 (See also [here](https://talk.commonmark.org/t/tables-in-pure-markdown/81/84) and [here](https://github.github.com/gfm/#tables-extension-) ).
 
 #### Example
 
 ```md
-| First Header  | Second Header | Third Header         |
+| First Header  | Second Header | Third Header |
 | :------------ | :-----------: | -------------------: |
-| First row     | Data          | Very long data entry |
-| Second row    | **Cell**      | *Cell*               |
-| Third row     | Cell that spans across two columns  ||
-[Table caption, works as a reference][section-mmd-tables-table1]
+| First row | Data  | Very long data entry |
+| Second row | **Cell**  | *Cell*  |
+| Third row  | Cell that spans across two columns  ||
+[Table caption, works as a reference][section-mmd-tables-table1] | |
 ```
 
-### anchors
+### Text direction
 
-See the section on references
+* **md**: `~|הלך אבא לעבודה|~rtl`
 
-### table of contents
+#### Language and script and text direction combined
 
-This is the thing: https://github.com/jonschlinkert/markdown-toc
+* **md**: `~|~|הלך אבא לעבודה|~he-Hebr|~rtl`
+
+It probably makes sense to indicate the base directionality and lang-script combination in a comment at the top of a work, i.e between `<!-- -->`, and to indicate in the text itself *only the exceptions*. This prevents redundant markup.
+
+In the bpt+2tei.py, we'll include rules like:
+
+* not included in the base directionality (unless it is ltr) are line numbers
+* not included in the base directionality (unless it is ltr) are note numbers
 
 ### see also
 

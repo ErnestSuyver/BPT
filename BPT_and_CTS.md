@@ -1,20 +1,25 @@
 # BPT and CTS
 
-## Background
+### Background
 
-At is heart, CTS is an ontology of text. Text as a tree structure, work as versions. BPT is CTS compliant. This means that the ontology is exoressed in BPT. Here is how:
+At its heart, CTS is an ontology of text. Text as a tree structure, work as versions. BPT can  be used in a CTS compliant way. This means that the ontology is expressed in BPT. Here is how:
 
+### Structure
 
-### sigla
+CTS structure is expressed with hashes.
 
 siglum | explanation
 ---- | -----
 `#` | textgroup
 `##` | work
 `###` | textpart
-`####` | CTS flavour
+`####` | CTS version
 
-There are three CTS flavours, indicated as follows:
+There is another siglum, `#####`, but it denotes a header and plays no rule in the text structure.
+
+### Versions
+
+There are three work versions in CTS, indicated with a fixed terminology:
 
 flavour | siglum
 ----- | -----
@@ -22,30 +27,39 @@ edition | `#### edition:`
 translation | `#### translation:`
 commentary | `#### commentary:`
 
-There is another siglum, `#####`, but it denotes a header and plays no rule in the text structure.
-
 ### metadata
 
-Textgroup metadata sit in a `settings.yml`.
+- _Textgroup_ metadata sit in a `settings.yml` or a `texgroup.md`. **this is inconsistent. Why not use YAML here too?**
+- _Work_ metadata sit in a Pandoc-style YAML block at the top of a work.
+- _Textpart_ metadata sit in a regular style YAML block at the top of a textpart.
 
-Work metadata sit in a Pandoc-style YAML block at the top of a work.
+For other metadata (at lower level than text parts), use stand-off annotation.
 
-Textpart metadata sit in a regular style YAML block at the top of a textpart.
+We have yet to devise a way to indicate mandatory and optional metadata fields.
 
+### files and folder
+
+The structure of the CTS folder is described elsewhere. Basically a folder per textgroup; within it a folder per work and an `.xml` per version. (BTW, textgroup and work have the crazy CTS xml file with metadata. These are converted from the BPT).
+
+BPT can simply follow this: a folder per textgroup; within it a folder per work and an `.md` per version.
+
+Likewise, CTS has requirements for file names, BPT can simply follow them.
+
+<!-- 
 ## Technical details
 
 JO uses the [BPT converter](https://gitlab.com/brillpublishers/code/bpt-converter) to convert BPT files into CTS compliant TEI XML files. This page gives the details.
 
 ### Technical details on values
 
-* `# workgroup fgrh` --> no need to put this in JO entries. The value `fgrh` is used in the CTS URN. It must be identical to the name of the folder containing the BPT files with JO entries (as well as the mandatory settings.xml and optional textgroup.md files)
+* `# workgroup fgrh` => no need to put this in JO entries. The value `fgrh` is used in the CTS URN. It must be identical to the name of the folder containing the BPT files with JO entries (as well as the mandatory settings.xml and optional textgroup.md files)
 * YAML field `title` is used in `<teiHeader>` and `__cts__.xml` (of work)
 * YAML field `label` is used in  `__cts__.xml` (of work). The [converter](https://gitlab.com/brillpublishers/code/bpt-converter) puts `(Edition)`, `(Translation)`, or `(Commentary)` behind it
-* `## work 0633` --> the value `0633` is used in the CTS URN. The converter compares this name with the file name of the BPT file.
-* `### edition: Banana` --> the value `Banana` is used in the `<head>` of the `<div>`. This value is optional. Things like `### edition: Edition` are superfluous and can be removed.
-* `texgroup.md` --> optional
-* `settings.yml` --> required. Required fields are ...
-* `#### commentary: Banana` --> the value `Banana` is used to group similar commentaries into one file. This needs revision.
+* `## work 0633` => the value `0633` is used in the CTS URN. The converter compares this name with the file name of the BPT file.
+* `### edition: Banana` => the value `Banana` is used in the `<head>` of the `<div>`. This value is optional. Things like `### edition: Edition` are superfluous and can be removed.
+* `texgroup.md` => optional
+* `settings.yml` => required. Required fields are ...
+* `#### commentary: Banana` => the value `Banana` is used to group similar commentaries into one file. This needs revision.
 * The converter works within a folder. In that folder, it expects another folder containing the BPT files with JO entries (as well as the mandatory settings.xml and optional textgroup.md files). The name of that folder must be identical to the name of the textgroup as used in the CTS URN
 
 ### Technical details about metadata
@@ -57,7 +71,7 @@ It does not matter **where**in the textgroup the metadata fields occur, but in J
 - textgroup metadata go in the settings YAML
 - work metadata go in the .md files.
 
-Note that you can have "textgroup.md" files, i.e. files at the level of a textgroup. These can have metadata too. But in JO, we don't use them. 
+Note that you can have "textgroup.md" files, i.e. files at the level of a textgroup. These can have metadata too. But in JO, we don't use them.
 
 It is also possible to have metadata on textpart level. But currently the script ignores it. With one exception: language. See below. 
 
@@ -87,9 +101,10 @@ author | settings YAML _or _.md YAML (BPT file) | Williams, Mary Frances (San M
 reference\_levels | settings YAML _or _.md YAML (BPT file) | \- section: div | TEI (`<teiHeader>`) | `<refsDecl>`
 
 Notes:
-1. There is no need for a field stating “ed” or “tr” or “comm” because we retrieve this from the ti:label. 
+
+1. There is no need for a field stating “ed” or “tr” or “comm” because we retrieve this from the ti:label.
 2. There is no need for a field stating the cts\_version\_number because we retrieve this simply from the amount of files.
-3. The field “source\_language” does not exist yet… 
+3. The field “source\_language” does not exist yet…
 4. We currently have **both** `##` title and YAML title: . This needs to be de-doubled.
 
 #### Optional fields
@@ -137,3 +152,7 @@ BPT files names in JO are either `0001.md`, `0001_ed2.md` or `0001_ed3.md` (with
 * replace `### subsection` with `### textpart` 
 * remove historian metadata from YAML table at work level and ignore this table, just like we ignore the fragment metadata.
 * Add publication statement as YAML field publication\_statement:
+-->
+
+### see also
+- [my documentation of CTS](https://brillpublishers.gitlab.io/documentation-cts)
