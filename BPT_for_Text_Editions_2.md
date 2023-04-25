@@ -1,23 +1,25 @@
-# BPT for Text Editions
+# BPT for Critical Text Editions
 
-## Introduction
+### Introduction
+
+<!--
 The following is a _supplement_ to the document [BPT Basic Guidelines](BPT_Basic_Guidelines.html) that provide basic guidelines for handling Brill publications in plain text format, particularly MarkDown with some Brill-specific extensions. This document presupposes working knowledge of these guidelines.
 
 This document does _not_ say anything about previous or subsequent steps in the workflow. It does not, for example, detail what a text edition should look like in a rich text format like MS Word. Nor does it say anything about a structuring format like TEI XML.
 
 This document does _not_ say anything about what a Brill text edition should look like, either in print or online. Questions of rendering are decided in consultation with the authors or editors.
+-->
 
-Text editions are manyfold in their approach and can be quite complex. The aim of the Brill workflow that puts plain text in central place is to reduce that complexity, and to give different matters a separate place in a workflow. The creation of XML or the rendering of a publication are examples.
+Text editions are manyfold in their approach and can be quite complex. The aim of BPT, and/or a workflow based on it, is to put plain text in central place is to reduce that complexity, and to give different matters a separate place in a workflow. The creation of XML or the rendering of a publication are examples of that.
 
-Complexity can be added by subsequent phases of the workflow, where each phase is handled by scripts. The purpose of the BPT script is to produce a text editon consisting of a base text and one or more sets of annotations in plain text. Its focus is on clarity and consistency.
-
+Complexity can be added by subsequent phases of the workflow, where each phase is handled by scripts. The purpose of the BPT script is to produce a text edition consisting of a base text and one or more sets of annotations in plain text. Its focus is on clarity and consistency.
+<!-- 
 Complexity and exceptions will no doubt arise, and will be dealt with when we get there. In some cases that may lead to changes in this document. The aim of the following is not to cater for all cases, but to be used.
+-->
 
-## Unicode and font
+### Unicode and font
 
-BPT requires that all text is in Unicode, encoded in UTF-8. The Brill font is mandatory. In cases where a script is not included in the Brill font, another font may be used in comnsultation with [Brill's script expert](mailto:rietbroek@brill.com). The list of currently used fonts is found [here](waar ook al weer?).
-
-## Base Text
+BPT requires that all text is in Unicode, i.e. uses Unicode fonts, and is encoded in UTF-8.
 
 ### Lines
 
@@ -38,7 +40,7 @@ second line
 
 ### Line numbers
 
-BPT requires line numbers (if required) to be preprended to _all_ lines. (This does not mean they are rendered as such in the publication). 
+BPT requires line numbers (if required) to be preprended to _all_ lines. (This does not mean they are rendered as such in the publication).
 
 Authors are responsible for clearly indicated line numbers, for example at every line, or every fifth line. THe BPT script converts these to all lines.
 
@@ -53,27 +55,48 @@ The Unicode points are U+0031 (or any other number), U+002E, and U+0020. Any oth
 2. second line
 ```
 
-### Appendix on Newlines
+## Marginalia
 
-Newlines are control characters in a character encoding specification like Unicode that signify the end of a line of text and the start of a new one. Several such characters exist. Some of the most widely used are:
+There are several types, e.g.
 
- CR = carriage return (return to beginning of line) = Macintosh before OSX
- LF = line feed (= move down one line) = Unix, macOS
- CR LF = a combination of LF and CR = Windows
+* References to other editions (often following the physical structure, e.g. Migne pages, Whiston sections, etc.)
+* Some explicatory or summary annotation
 
-The Unicode points for these characters are (in hexadecimal notation):
+Such marginalia should be attached to (clean, free of anchors and such like) base text via URNs, but these have no place in human-readable BPT. What to do? Treat them like notes.
 
- CR = U+000D
- LF = U+000A
- CR+LF = U+000D followed by U+000A
+#### Example
 
-In certain programming languages, these control characters are handled by escape sequences. In Python, for example, `\r` represents a carriage return, and `\n` a line feed. Other languages mnay have different escape sequences to set, search and replace special characters. The following therefore only applies to BPT:
+```
+Ἔστι μὲν καὶ πᾶσιν ὑαῖν τοῖς τὴν ἰατρικὴν αετιοῦσι[^1]
 
- CR = U+000D = \r
- LF = U+000A = \n
- CR+LF = U+000D U+000A = \r\n
+[^1] 71 Merc.
+```
 
-See [Wikipedia](https://en.wikipedia.org/wiki/Newline).
+In this example it is unclear if the annotation refers to to the word or the line. Disambiguate as follows:
+
+#### Example
+
+```
+1.[^1] Ἔστι μὲν καὶ πᾶσιν ὑαῖν τοῖς τὴν ἰατρικὴν αετιοῦσι
+
+[^1] 71 Merc.
+```
+
+*There is currently no way to indicate a wider or more narrow span than the line. (But see my BNJ example!!!)*
+
+Using different sets of annotation, for example, critical apparatus combined with commentary notes and marginal notes, requires a way to disambiguate, i.e. to mark each system as such. Use simple markers to do so, e.g. letters, like so:
+
+#### Example
+
+```
+1.[^1] A line[^2] of base text[^3]
+
+[^1] MN A marginal note
+[^2] AC A text-critical note
+[^3] CN A commentary note
+```
+
+It does not matter which markers are used, as long as they are clear and used consistently.
 
 ### Page numbers
 
@@ -102,9 +125,7 @@ Note, by the way, that the marker for line beginning is superfluous as we alread
 4. fourth line
 ```
 
-## Critical apparatus
-
-### Critical apparatus as notes
+### Critical apparatus
 
 BPT regards a critical apparatus as a form of annotation, in this case, on the base text, and therefore uses _notes_ to represent text-critical remarks. In particular, stand-off notes are used, that is, the notes are not included in the base text, but _separated_ from it. The separation consists of one blank line.
 
@@ -160,7 +181,7 @@ Each note groups together all readings, i.e. all variations for a word or phrase
 
 An example: the first three lines of the _Prologue_ to Chaucer's _Wife of Bath_. There are four manuscripts for this text, and for three of them a variant reading of the first line may be recorded like this:
 
-#### Example
+#### Example of variant readings
 
 ```
 1. Experience, though noon auctoritee[^1]
@@ -174,7 +195,7 @@ The BPT script places the manuscript marker before the variant reading (separate
 
 A note, i.e. an apparatus entry, may contain a lemma, i.e. a reading accepted as that of the original or of the base text. This may look as follows:
 
-#### Example
+#### Example of variant readings with a lemma
 
 ```
 1. Experience[^1], though[^2] noon auctoritee
@@ -201,49 +222,6 @@ Hg = Hengwrt, National Library of Wales, Aberystwyth, Peniarth 392D
 La = British Library Lansdowne 851
 Ra2 = Bodleian Library Rawlinson Poetic 149
 ```
-
-## Marginalia
-
-There are several types, e.g.
-
-* References to other editions (often following the physical structure, e.g. Migne pages, Whiston sections, etc.)
-* Some explicatory or summary annotation
-
-Such marginalia should be attached to (clean, free of anchors and such like) base text via URNs, but these have no place in human-readable BPT. What to do? Treat them like notes.
-
-#### Example
-
-```
-Ἔστι μὲν καὶ πᾶσιν ὑαῖν τοῖς τὴν ἰατρικὴν αετιοῦσι[^1]
-
-[^1] 71 Merc.
-```
-
-In this example it is unclear if the annotation refers to to the wordl or to the line. Disambiguate as follows:
-
-#### Example
-
-```
-1.[^1] Ἔστι μὲν καὶ πᾶσιν ὑαῖν τοῖς τὴν ἰατρικὴν αετιοῦσι
-
-[^1] 71 Merc.
-```
-
-*There is currently no way to indicate a wider or more narrow span than the line. (But see my BNJ example!!!)*
-
-Using different sets of annotation, for example, critical apparatus combined with commentary notes and marginal notes, requires a way to disambiguite, i.e to mark each system as such. Use simple markers to do so, e.g. letters, like so:
-
-#### Example
-
-```
-1.[^1] A line[^2] of base text[^3]
-
-[^1] MN A marginal note
-[^2] AC A text-crtical note
-[^3] CN A commentary note
-```
-
-It does not matter which markers are used, as long as they are clear and used consistently.
 
 ## Milestones
 

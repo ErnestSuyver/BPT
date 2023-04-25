@@ -15,16 +15,17 @@ BPT is
 ### Summary
 
 <!-- * [Introduction](README.md) -->
+* [BPT Aims](BPT_aims.md)
 * [BPT Basics](BPT_Basics.md)
 * [BPT for Text Editions 1](BPT_for_Text_Editions_1.md)
 * [BPT for Text Editions 2](BPT_for_Text_Editions_2.md)
 * [BPT Citations and references](BPT_bibls.md)
 * [BPT and Leiden+](BPT_and_LeidenPlus_background.md)
 * [BPT and Leiden+ Overview](BPT_and_LeidenPlus_overview.md)
-* [BPT dataflow](BPT_workflow.md)
+* [BPT workflow](BPT_workflow.md)
 * [BPT and CTS](BPT_and_CTS.md)
 * [BPT in the wild](BPT_in_the_wild.md)
-* [BPT semantic](BPT_semantic.md)
+* [BPT Semantics](BPT_semantics.md)
 
 ### version history
 
